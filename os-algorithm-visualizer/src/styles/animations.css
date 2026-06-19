@@ -1,0 +1,126 @@
+/* ============================================
+   动画与过渡定义
+   ============================================ */
+
+/* ---- 淡入淡出 ---- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* ---- 滑入 ---- */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---- 高亮脉冲 ---- */
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 0 0 0 var(--accent-glow);
+    }
+    50% {
+        box-shadow: 0 0 0 6px transparent;
+    }
+}
+
+@keyframes pulseDanger {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 0 6px transparent;
+    }
+}
+
+/* ---- 状态变化 ---- */
+@keyframes highlightFault {
+    0% {
+        background-color: var(--danger-muted);
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        background-color: var(--danger-muted);
+        transform: scale(1);
+    }
+}
+
+@keyframes highlightReplace {
+    0% {
+        background-color: var(--warning-muted);
+    }
+    100% {
+        background-color: var(--warning-muted);
+    }
+}
+
+/* ---- 进度条动画 ---- */
+@keyframes progressPulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+/* ---- 应用类 ---- */
+.animate-fade-in {
+    animation: fadeIn var(--transition-slow) ease forwards;
+}
+
+.animate-slide-in-right {
+    animation: slideInRight var(--transition-slow) ease forwards;
+}
+
+.animate-slide-in-up {
+    animation: slideInUp var(--transition-slow) ease forwards;
+}
+
+.animate-pulse-glow {
+    animation: pulseGlow 1.5s ease-in-out infinite;
+}
+
+.animate-pulse-danger {
+    animation: pulseDanger 1.5s ease-in-out infinite;
+}
+
+/* ---- 过渡类 ---- */
+.transition-fade {
+    transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+.transition-all {
+    transition: all var(--transition-base);
+}
+
+/* ---- 高亮闪烁（克制使用） ---- */
+.highlight-flash {
+    animation: highlightFault 0.6s ease;
+}
+
+.replace-flash {
+    animation: highlightReplace 0.6s ease;
+}

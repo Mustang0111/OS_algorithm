@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>操作系统核心算法可视化教学平台</title>
+    <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
+</head>
+<body>
+    <div id="app">
+        <!-- 顶部栏 -->
+        <header id="toolbar" class="toolbar">
+            <div class="toolbar-left">
+                <div class="toolbar-logo">
+                    <svg class="toolbar-logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                        <line x1="8" y1="21" x2="16" y2="21"/>
+                        <line x1="12" y1="17" x2="12" y2="21"/>
+                    </svg>
+                    <span class="toolbar-title">OS 算法可视化教学平台</span>
+                </div>
+            </div>
+            <div class="toolbar-center">
+                <span id="moduleTitle" class="toolbar-module-title">页面置换算法</span>
+            </div>
+            <div class="toolbar-right">
+                <span class="toolbar-version">v1.0.0</span>
+            </div>
+        </header>
+
+        <!-- 主体区域 -->
+        <div id="main-container" class="main-container">
+            <!-- 左侧导航栏 -->
+            <nav id="sidebar" class="sidebar">
+                <div class="sidebar-nav">
+                    <button class="sidebar-item active" data-module="pageReplacement" title="页面置换">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="7" height="7"/>
+                            <rect x="14" y="3" width="7" height="7"/>
+                            <rect x="3" y="14" width="7" height="7"/>
+                            <rect x="14" y="14" width="7" height="7"/>
+                        </svg>
+                        <span class="sidebar-label">页面置换</span>
+                    </button>
+                    <button class="sidebar-item" data-module="cpuScheduling" title="CPU调度">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="4" y="4" width="16" height="16" rx="2"/>
+                            <rect x="9" y="9" width="6" height="6"/>
+                            <line x1="12" y1="2" x2="12" y2="4"/>
+                            <line x1="12" y1="20" x2="12" y2="22"/>
+                            <line x1="2" y1="12" x2="4" y2="12"/>
+                            <line x1="20" y1="12" x2="22" y2="12"/>
+                        </svg>
+                        <span class="sidebar-label">CPU调度</span>
+                    </button>
+                    <button class="sidebar-item" data-module="banker" title="银行家算法">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                        <span class="sidebar-label">银行家</span>
+                    </button>
+                    <button class="sidebar-item" data-module="diskScheduling" title="磁盘调度">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <circle cx="12" cy="12" r="3"/>
+                            <line x1="12" y1="2" x2="12" y2="6"/>
+                            <line x1="12" y1="18" x2="12" y2="22"/>
+                            <line x1="2" y1="12" x2="6" y2="12"/>
+                            <line x1="18" y1="12" x2="22" y2="12"/>
+                        </svg>
+                        <span class="sidebar-label">磁盘调度</span>
+                    </button>
+                    <button class="sidebar-item" data-module="producerConsumer" title="生产者消费者">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14"/>
+                            <path d="M12 5l7 7-7 7"/>
+                        </svg>
+                        <span class="sidebar-label">生产者消费者</span>
+                    </button>
+                </div>
+            </nav>
+
+            <!-- 主展示区域 -->
+            <main id="content-area" class="content-area">
+                <div id="module-container" class="module-container">
+                    <!-- 模块内容由JS动态渲染 -->
+                </div>
+            </main>
+
+            <!-- 右侧解释面板 -->
+            <aside id="explanation-panel" class="explanation-panel">
+                <div class="explanation-header">
+                    <svg class="explanation-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="16" x2="12" y2="12"/>
+                        <line x1="12" y1="8" x2="12.01" y2="8"/>
+                    </svg>
+                    <span>算法解释</span>
+                </div>
+                <div id="explanation-content" class="explanation-content">
+                    <div class="explanation-placeholder">
+                        <p>选择一个算法模块开始学习</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- 底部控制面板 -->
+        <footer id="control-panel" class="control-panel">
+            <div class="control-left">
+                <div class="control-info">
+                    <span id="stepIndicator" class="control-step">步骤: 0 / 0</span>
+                </div>
+            </div>
+            <div class="control-center">
+                <div class="control-buttons">
+                    <button id="btnPrev" class="control-btn" title="上一步" disabled>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="19 20 9 12 19 4 19 20"/>
+                            <line x1="5" y1="19" x2="5" y2="5"/>
+                        </svg>
+                    </button>
+                    <button id="btnPlay" class="control-btn control-btn-play" title="播放">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="5 3 19 12 5 21 5 3"/>
+                        </svg>
+                    </button>
+                    <button id="btnNext" class="control-btn" title="下一步" disabled>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="5 4 15 12 5 20 5 4"/>
+                            <line x1="19" y1="5" x2="19" y2="19"/>
+                        </svg>
+                    </button>
+                    <button id="btnReset" class="control-btn" title="重置" disabled>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="23 4 23 10 17 10"/>
+                            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="control-speed">
+                    <label class="speed-label">速度</label>
+                    <input type="range" id="speedSlider" class="speed-slider" min="1" max="10" value="5" />
+                    <span id="speedValue" class="speed-value">1.0x</span>
+                </div>
+            </div>
+            <div class="control-right">
+                <div class="control-preset">
+                    <button id="btnPreset" class="control-btn" title="预设案例">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 预设面板弹窗 -->
+    <!-- 预设面板弹窗 -->
+    <div id="preset-overlay" class="preset-overlay hidden">
+        <div class="preset-panel">
+            <div class="preset-header">
+                <span>预设案例</span>
+                <button id="presetCloseBtn" class="preset-close">&times;</button>
+            </div>
+            <div id="preset-list" class="preset-list">
+                <!-- 由JS动态渲染 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 错误提示 -->
+    <div id="refStringError" class="input-error hidden">请输入页面引用序列</div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

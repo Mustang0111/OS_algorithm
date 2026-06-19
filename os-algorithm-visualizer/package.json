@@ -1,0 +1,15 @@
+{
+  "name": "os-algorithm-visualizer",
+  "version": "1.0.0",
+  "description": "操作系统核心算法可视化教学平台",
+  "type": "module",
+  "scripts": {
+    "dev": "npx vite --port 3000",
+    "build": "npx vite build",
+    "preview": "npx vite preview"
+  },
+
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}

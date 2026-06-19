@@ -1,0 +1,14 @@
+{
+  "name": "os-algorithm-visualizer",
+  "version": "1.0.0",
+  "description": "操作系统核心算法可视化教学平台",
+  "type": "module",
+  "scripts": {
+    "dev": "node node_modules/vite/dist/node/cli.js --config os-algorithm-visualizer/vite.config.js",
+    "build": "node node_modules/vite/dist/node/cli.js build --config os-algorithm-visualizer/vite.config.js",
+    "preview": "node node_modules/vite/dist/node/cli.js preview --config os-algorithm-visualizer/vite.config.js"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}
